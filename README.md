@@ -81,6 +81,28 @@ $prettifyColor[rgb(100%, 0%, 50%)]
 $c[Returns: "rgb(255, 0, 128)" - Converted to numeric values]
 ```
 
+#### `$colorFormatType[code]`
+Returns the format of a given color code.
+
+**Parameters:**
+- `code` (String) - The color code to get the format of
+
+**Returns:** String (format name: hex, rgb, rgba, hsl, cmyk, int, or "unknown")
+
+**Aliases:** `$getColorFormat`, `$detectColorFormat`
+
+**Example:**
+```
+$colorFormatType[#ff0000]
+$c[Returns: "hex"]
+
+$colorFormatType[rgb(255, 0, 0)]
+$c[Returns: "rgb"]
+
+$colorFormatType[invalid-color]
+$c[Returns: "unknown"]
+```
+
 ## Supported Color Formats
 
 ### HEX
