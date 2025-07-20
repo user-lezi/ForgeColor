@@ -1,6 +1,11 @@
 import { ColorFormat, ParsedColorByFormat } from "../typings";
 import { detectColorFormat } from "./detectColorType";
-import { rgbToString, rgbaToString, hslToString, cmykToString } from "./formatters";
+import {
+  rgbToString,
+  rgbaToString,
+  hslToString,
+  cmykToString,
+} from "./formatters";
 import { parseColor } from "./parseColor";
 
 /**
@@ -32,7 +37,7 @@ export class ColorConverter {
    */
   static #xToRGB<F extends ColorFormat>(
     from: F,
-    parsed: ParsedColorByFormat<F>
+    parsed: ParsedColorByFormat<F>,
   ): { r: number; g: number; b: number } | null {
     switch (parsed.format) {
       case ColorFormat.rgb:
@@ -62,7 +67,7 @@ export class ColorConverter {
   static #RGBtoX(
     to: ColorFormat,
     rgb: { r: number; g: number; b: number },
-    alpha = 1
+    alpha = 1,
   ): string | null {
     switch (to) {
       case ColorFormat.rgb:
@@ -89,14 +94,18 @@ export class ColorConverter {
    */
   static hexToRgb(hex: string): { r: number; g: number; b: number } {
     const raw = hex.replace(/^#/, "");
-    const value = raw.length === 3
-      ? raw.split("").map(c => c + c).join("")
-      : raw;
+    const value =
+      raw.length === 3
+        ? raw
+            .split("")
+            .map((c) => c + c)
+            .join("")
+        : raw;
     const num = parseInt(value, 16);
     return {
       r: (num >> 16) & 255,
       g: (num >> 8) & 255,
-      b: num & 255
+      b: num & 255,
     };
   }
 
@@ -104,26 +113,39 @@ export class ColorConverter {
    * Converts RGB to hex string.
    */
   static rgbToHex({ r, g, b }: { r: number; g: number; b: number }): string {
-    return `#${[r, g, b].map(v => v.toString(16).padStart(2, '0')).join('')}`;
+    return `#${[r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("")}`;
   }
 
   /**
    * Converts HSL values to RGB.
    */
-  static hslToRgb(h: number, s: number, l: number): { r: number; g: number; b: number } {
+  static hslToRgb(
+    h: number,
+    s: number,
+    l: number,
+  ): { r: number; g: number; b: number } {
     const k = (n: number) => (n + h / 30) % 12;
     const a = s * Math.min(l, 1 - l);
     const f = (n: number) =>
-      Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))));
+      Math.round(
+        255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))),
+      );
     return { r: f(0), g: f(8), b: f(4) };
   }
 
   /**
    * Converts RGB to HSL values.
    */
-  static rgbToHsl({ r, g, b }: { r: number; g: number; b: number }): { h: number; s: number; l: number } {
-    r /= 255; g /= 255; b /= 255;
-    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  static rgbToHsl({ r, g, b }: { r: number; g: number; b: number }): {
+    h: number;
+    s: number;
+    l: number;
+  } {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    const max = Math.max(r, g, b),
+      min = Math.min(r, g, b);
     const l = (max + min) / 2;
 
     if (max === min) return { h: 0, s: 0, l: l * 100 };
@@ -133,22 +155,33 @@ export class ColorConverter {
     let h = 0;
 
     switch (max) {
-      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-      case g: h = (b - r) / d + 2; break;
-      case b: h = (r - g) / d + 4; break;
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
     }
 
     return {
       h: h * 60,
       s: s * 100,
-      l: l * 100
+      l: l * 100,
     };
   }
 
   /**
    * Converts CMYK values to RGB.
    */
-  static cmykToRgb(c: number, m: number, y: number, k: number): { r: number; g: number; b: number } {
+  static cmykToRgb(
+    c: number,
+    m: number,
+    y: number,
+    k: number,
+  ): { r: number; g: number; b: number } {
     return {
       r: Math.round(255 * (1 - c) * (1 - k)),
       g: Math.round(255 * (1 - m) * (1 - k)),
@@ -159,7 +192,12 @@ export class ColorConverter {
   /**
    * Converts RGB to CMYK values.
    */
-  static rgbToCmyk({ r, g, b }: { r: number; g: number; b: number }): { c: number; m: number; y: number; k: number } {
+  static rgbToCmyk({ r, g, b }: { r: number; g: number; b: number }): {
+    c: number;
+    m: number;
+    y: number;
+    k: number;
+  } {
     const r_ = r / 255;
     const g_ = g / 255;
     const b_ = b / 255;
@@ -175,7 +213,7 @@ export class ColorConverter {
       c: Math.round(c * 100),
       m: Math.round(m * 100),
       y: Math.round(y * 100),
-      k: Math.round(k * 100)
+      k: Math.round(k * 100),
     };
   }
 }

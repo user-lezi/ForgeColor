@@ -60,17 +60,20 @@ class ColorConverter {
     static hexToRgb(hex) {
         const raw = hex.replace(/^#/, "");
         const value = raw.length === 3
-            ? raw.split("").map(c => c + c).join("")
+            ? raw
+                .split("")
+                .map((c) => c + c)
+                .join("")
             : raw;
         const num = parseInt(value, 16);
         return {
             r: (num >> 16) & 255,
             g: (num >> 8) & 255,
-            b: num & 255
+            b: num & 255,
         };
     }
     static rgbToHex({ r, g, b }) {
-        return `#${[r, g, b].map(v => v.toString(16).padStart(2, '0')).join('')}`;
+        return `#${[r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("")}`;
     }
     static hslToRgb(h, s, l) {
         const k = (n) => (n + h / 30) % 12;
@@ -103,7 +106,7 @@ class ColorConverter {
         return {
             h: h * 60,
             s: s * 100,
-            l: l * 100
+            l: l * 100,
         };
     }
     static cmykToRgb(c, m, y, k) {
@@ -127,7 +130,7 @@ class ColorConverter {
             c: Math.round(c * 100),
             m: Math.round(m * 100),
             y: Math.round(y * 100),
-            k: Math.round(k * 100)
+            k: Math.round(k * 100),
         };
     }
 }

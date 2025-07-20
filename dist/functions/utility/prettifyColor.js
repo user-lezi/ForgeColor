@@ -4,15 +4,13 @@ const forgescript_1 = require("@tryforge/forgescript");
 const convert_1 = require("../../helpers/convert");
 const helpers_1 = require("../../helpers");
 exports.default = new forgescript_1.NativeFunction({
-    name: '$prettifyColor',
-    aliases: ['$formatColor', '$normalizeColor'],
-    description: 'Returns a cleaner, standardized version of the given color string.',
+    name: "$prettifyColor",
+    aliases: ["$formatColor", "$normalizeColor"],
+    description: "Returns a cleaner, standardized version of the given color string.",
     brackets: true,
     unwrap: true,
-    version: '1.0.0',
-    args: [
-        forgescript_1.Arg.requiredString('code', 'The color string to prettify.'),
-    ],
+    version: "1.0.0",
+    args: [forgescript_1.Arg.requiredString("code", "The color string to prettify.")],
     async execute(ctx, [code]) {
         try {
             const format = (0, helpers_1.detectColorFormat)(code);
@@ -28,5 +26,5 @@ exports.default = new forgescript_1.NativeFunction({
         catch (err) {
             return this.customError(`An error occurred while prettifying the color: ${err.message}`);
         }
-    }
+    },
 });

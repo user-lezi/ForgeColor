@@ -1,11 +1,20 @@
 // Clamp helper
-const clamp = (value: number, min = 0, max = 255) => Math.max(min, Math.min(max, value));
+const clamp = (value: number, min = 0, max = 255) =>
+  Math.max(min, Math.min(max, value));
 const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 
 /**
  * Returns a string like `rgb(255, 0, 0)`
  */
-export function rgbToString({ r, g, b }: { r: number; g: number; b: number }): string {
+export function rgbToString({
+  r,
+  g,
+  b,
+}: {
+  r: number;
+  g: number;
+  b: number;
+}): string {
   return `rgb(${clamp(Math.round(r))}, ${clamp(Math.round(g))}, ${clamp(Math.round(b))})`;
 }
 
@@ -16,7 +25,7 @@ export function rgbaToString({
   r,
   g,
   b,
-  a = 1
+  a = 1,
 }: {
   r: number;
   g: number;
@@ -29,7 +38,15 @@ export function rgbaToString({
 /**
  * Returns a string like `hsl(120, 100%, 50%)`
  */
-export function hslToString({ h, s, l }: { h: number; s: number; l: number }): string {
+export function hslToString({
+  h,
+  s,
+  l,
+}: {
+  h: number;
+  s: number;
+  l: number;
+}): string {
   const roundPct = (v: number) => `${Math.round(clamp01(v) * 100)}%`;
   return `hsl(${Math.round(clamp(h, 0, 360))}, ${roundPct(s)}, ${roundPct(l)})`;
 }
@@ -41,7 +58,7 @@ export function cmykToString({
   c,
   m,
   y,
-  k
+  k,
 }: {
   c: number;
   m: number;
@@ -56,6 +73,6 @@ export function cmykToString({
  * Returns a string like `#ff0000`
  */
 export function hexToString(hex: string): string {
-  const cleaned = hex.trim().replace(/^#/, '');
+  const cleaned = hex.trim().replace(/^#/, "");
   return `#${cleaned.toLowerCase()}`;
 }

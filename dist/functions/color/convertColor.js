@@ -4,15 +4,15 @@ const forgescript_1 = require("@tryforge/forgescript");
 const convert_1 = require("../../helpers/convert");
 const typings_1 = require("../../typings");
 exports.default = new forgescript_1.NativeFunction({
-    name: '$convertColor',
-    aliases: ['$colorConvert', '$transformColor'],
-    description: 'Converts a color code from any supported format (hex, rgb, hsl, etc.) to a target format.',
+    name: "$convertColor",
+    aliases: ["$colorConvert", "$transformColor"],
+    description: "Converts a color code from any supported format (hex, rgb, hsl, etc.) to a target format.",
     brackets: true,
     unwrap: true,
-    version: '1.0.0',
+    version: "1.0.0",
     args: [
-        forgescript_1.Arg.requiredString('code', 'The color string to convert.'),
-        forgescript_1.Arg.requiredEnum(typings_1.ColorFormat, 'to', 'The format to convert the color to.'),
+        forgescript_1.Arg.requiredString("code", "The color string to convert."),
+        forgescript_1.Arg.requiredEnum(typings_1.ColorFormat, "to", "The format to convert the color to."),
     ],
     async execute(ctx, [code, to]) {
         try {
@@ -25,5 +25,5 @@ exports.default = new forgescript_1.NativeFunction({
         catch (err) {
             return this.customError(`An error occurred while converting color: ${err.message}`);
         }
-    }
+    },
 });

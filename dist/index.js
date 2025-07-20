@@ -21,7 +21,7 @@ class ForgeColor extends forgescript_1.ForgeExtension {
     description = require("../package.json").description;
     version = require("../package.json").version;
     init() {
-        this.load(__dirname + '/functions');
+        this.load(__dirname + "/functions");
     }
 }
 exports.ForgeColor = ForgeColor;

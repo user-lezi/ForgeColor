@@ -1,4 +1,4 @@
-export * from "./convert"
-export * from "./detectColorType"
+export * from "./convert";
+export * from "./detectColorType";
 export * from "./formatters";
-export * from "./parseColor"
+export * from "./parseColor";

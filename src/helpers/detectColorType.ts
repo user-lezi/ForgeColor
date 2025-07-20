@@ -1,13 +1,13 @@
 import { ColorFormat } from "../typings";
 
 /** Matches an integer or float, e.g. 10, -5, 0.5 */
-const number = '-?\\d+(\\.\\d+)?';
+const number = "-?\\d+(\\.\\d+)?";
 
 /** Matches a number or percent, e.g. 50, 0.5, 100% */
 const percent = `${number}%?`;
 
 /** Matches a comma with optional surrounding spaces */
-const comma = '\\s*,\\s*';
+const comma = "\\s*,\\s*";
 
 /** RGB component pattern: 3 percent values separated by commas */
 const rgbBody = `${percent}${comma}${percent}${comma}${percent}`;

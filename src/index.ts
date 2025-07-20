@@ -1,10 +1,10 @@
-import { ForgeExtension } from "@tryforge/forgescript"
+import { ForgeExtension } from "@tryforge/forgescript";
 
 /**
  * ForgeColor - A ForgeScript extension for color utility.
  **/
 export class ForgeColor extends ForgeExtension {
-    /** Extension name. */
+  /** Extension name. */
   public name: string = "ForgeColor";
 
   /** Extension description from package.json. */
@@ -13,11 +13,10 @@ export class ForgeColor extends ForgeExtension {
   /** Extension version from package.json. */
   public version: string = require("../package.json").version;
 
-    public init() {
-      this.load(__dirname + '/functions');
-
-    }
+  public init() {
+    this.load(__dirname + "/functions");
+  }
 }
 
-export * from "./helpers"
-export * from "./typings"
+export * from "./helpers";
+export * from "./typings";
