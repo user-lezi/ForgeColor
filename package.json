@@ -1,0 +1,33 @@
+{
+  "name": "forge.color",
+  "version": "1.0.0",
+  "description": "Color tools for ForgeScript: gradients, palettes, blending, and contrast",
+  "keywords": [
+    "forgecanvas",
+    "forge",
+    "color",
+    "palette",
+    "gradient"
+  ],
+  "homepage": "https://github.com/user-lezi/ForgeColor#readme",
+  "bugs": {
+    "url": "https://github.com/user-lezi/ForgeColor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user-lezi/ForgeColor.git"
+  },
+  "license": "MIT",
+  "author": "lezii",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "tsc && echo Done Compiling!! && node dist/__tests__/index.js"
+  },
+  "devDependencies": {
+    "@tryforge/forgescript": "^2.3.0",
+    "@types/node": "^24.0.15",
+    "typescript": "^5.8.3"
+  }
+}
