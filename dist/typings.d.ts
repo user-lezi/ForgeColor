@@ -6,6 +6,19 @@ export declare enum ColorFormat {
     int = "int",
     cmyk = "cmyk"
 }
+export declare enum ColorChannels {
+    red = "red",
+    green = "green",
+    blue = "blue",
+    alpha = "alpha",
+    hue = "hue",
+    saturation = "saturation",
+    lightness = "lightness",
+    cyan = "cyan",
+    magenta = "magenta",
+    yellow = "yellow",
+    key = "key"
+}
 export type ParsedColorByFormat<T extends ColorFormat = ColorFormat> = T extends ColorFormat.hex ? {
     format: ColorFormat.hex;
     value: string;

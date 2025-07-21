@@ -9,6 +9,27 @@ export enum ColorFormat {
   int = "int",
   cmyk = "cmyk",
 }
+/**
+ * Supported color channels for extraction.
+ */
+export enum ColorChannels {
+  // RGB(A)
+  red = "red",
+  green = "green",
+  blue = "blue",
+  alpha = "alpha",
+
+  // HSL
+  hue = "hue",
+  saturation = "saturation",
+  lightness = "lightness",
+
+  // CMYK
+  cyan = "cyan",
+  magenta = "magenta",
+  yellow = "yellow",
+  key = "key",
+}
 
 /**
  * Parsed representation of a color in the specified format.
