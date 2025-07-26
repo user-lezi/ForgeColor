@@ -10,7 +10,7 @@ npm install github:user-lezi/ForgeColor
 
 ```javascript
 const { ForgeClient } = require("@tryforge/forgescript");
-const ForgeColor = require("forge.color");
+const ForgeColor = require("forgecolor");
 
 const client = new ForgeClient({
     extensions: [
@@ -19,89 +19,13 @@ const client = new ForgeClient({
 });
 ```
 
-## Functions
+---
 
-### Core Functions
+## Function Reference
 
-#### `$parseColor[code]`
-Parses and normalizes a color string to a structured object.
+For a complete list of available color functions, usage, and examples, see the [FUNCTIONS.md](./FUNCTIONS.md) file.
 
-**Parameters:**
-- `code` (String) - The color string to parse
-
-**Returns:** JSON object with parsed color data
-
-**Aliases:** `$normalizeColor`, `$colorObject`
-
-**Example:**
-```
-$parseColor[#ff0000]
-$c[Returns: {"format":"hex","value":"#ff0000"}]
-
-$parseColor[rgb(255, 0, 0)]
-$c[Returns: {"format":"rgb","r":255,"g":0,"b":0}]
-```
-
-#### `$convertColor[code;to]`
-Converts a color code from any supported format to a target format.
-
-**Parameters:**
-- `code` (String) - The color string to convert
-- `to` (String) - The format to convert to (rgb, rgba, hex, hsl, cmyk, int)
-
-**Returns:** String (converted color in target format)
-
-**Aliases:** `$colorConvert`, `$transformColor`
-
-**Example:**
-```
-$convertColor[#ff0000;rgb]
-$c[Returns: "rgb(255, 0, 0)"]
-
-$convertColor[rgb(255, 0, 0);hsl]
-$c[Returns: "hsl(0, 100%, 50%)"]
-```
-
-#### `$prettifyColor[code]`
-Returns a cleaner, standardized version of the given color string.
-
-**Parameters:**
-- `code` (String) - The color string to prettify
-
-**Returns:** String (standardized color format)
-
-**Aliases:** `$formatColor`, `$normalizeColor`
-
-**Example:**
-```
-$prettifyColor[#F00]
-$c[Returns: "#ff0000" - Normalized hex format]
-
-$prettifyColor[rgb(100%, 0%, 50%)]
-$c[Returns: "rgb(255, 0, 128)" - Converted to numeric values]
-```
-
-#### `$colorFormatType[code]`
-Returns the format of a given color code.
-
-**Parameters:**
-- `code` (String) - The color code to get the format of
-
-**Returns:** String (format name: hex, rgb, rgba, hsl, cmyk, int, or "unknown")
-
-**Aliases:** `$getColorFormat`, `$detectColorFormat`
-
-**Example:**
-```
-$colorFormatType[#ff0000]
-$c[Returns: "hex"]
-
-$colorFormatType[rgb(255, 0, 0)]
-$c[Returns: "rgb"]
-
-$colorFormatType[invalid-color]
-$c[Returns: "unknown"]
-```
+---
 
 ## Supported Color Formats
 
