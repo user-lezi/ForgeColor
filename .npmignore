@@ -1,0 +1,7 @@
+docs
+metadata
+src
+dist/__tests__
+dist/docgen.*
+tsconfig.json
+FUNCTIONS.md
