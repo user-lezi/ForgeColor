@@ -17,6 +17,7 @@ A complete list of all color-related functions provided by the ForgeColor extens
   - [$getColorChannel](#getcolorchannel)
 - [Color Generation](#color-generation)
   - [$randomColor](#randomcolor)
+  - [$blendColors](#blendcolors)
 
 ---
 
@@ -158,6 +159,27 @@ Generates a random color in the specified format (hex by default).
   $c[Returns: "rgb(123, 45, 67)"]
   $randomColor[hsl]
   $c[Returns: "hsl(210, 50%, 60%)"]
+  ```
+
+---
+
+### `$blendColor[color 1;color 2;mode;t?]`
+
+Blends two colors using a blend mode like average, multiply, or gamma.
+
+- **Parameters:**
+  - `color 1` (String): The first color.
+  - `color 2` (String): The second color.
+  - `mode` (String): The blend mode to use (average, additive, screen, multiply, gamma).
+  - `t` (Number, optional): Blend factor between 0 and 1. Used only for "average" and "gamma" modes. Defaults to 0.5.
+- **Returns:** String (blended color in RGB format).
+- **Aliases:** `$blend`, `$mixColors`
+- **Example:**
+  ```js
+  $blendColors[#ff0000;#ff000f;additive]
+  $c[Returns: "rgb(255, 0, 15)"]
+  $blendColors[rgb(255, 0, 0);rgb(255, 0, 255);gamma;0.34]
+  $c[Returns: "rgb(255, 0, 158)"]
   ```
 
 ---
