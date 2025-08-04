@@ -12,6 +12,7 @@ exports.default = new forgescript_1.NativeFunction({
     brackets: true,
     unwrap: true,
     version: "1.0.1",
+    output: forgescript_1.ArgType.Json,
     args: [
         forgescript_1.Arg.requiredNumber("steps", "Total steps in the gradient"),
         forgescript_1.Arg.requiredEnum(typings_1.ColorFormat, "output format", "Format to return each color in: hex, rgb, rgba, hsl, or cmyk"),

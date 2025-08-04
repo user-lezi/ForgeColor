@@ -1,4 +1,4 @@
-import { NativeFunction, Arg } from "@tryforge/forgescript";
+import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { parseColor, ColorConverter, rgbToString } from "../../helpers";
 import { generateGradient } from "../../helpers/gradient";
 import { ColorFormat, RGB } from "../../typings";
@@ -12,7 +12,7 @@ export default new NativeFunction({
   brackets: true,
   unwrap: true,
   version: "1.0.1",
-
+  output: ArgType.Json,
   args: [
     Arg.requiredNumber("steps", "Total steps in the gradient"),
     Arg.requiredEnum(

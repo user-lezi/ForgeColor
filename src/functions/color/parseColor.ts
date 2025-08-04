@@ -1,4 +1,4 @@
-import { NativeFunction, Arg } from "@tryforge/forgescript";
+import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { parseColor } from "../../helpers/parseColor";
 
 export default new NativeFunction({
@@ -8,6 +8,7 @@ export default new NativeFunction({
   brackets: true,
   unwrap: true,
   version: "1.0.0",
+  output: ArgType.Json,
   args: [Arg.requiredString("code", "The color string to parse")],
   async execute(ctx, [code]) {
     try {

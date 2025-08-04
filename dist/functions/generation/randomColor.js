@@ -9,6 +9,7 @@ exports.default = new forgescript_1.NativeFunction({
     brackets: false,
     unwrap: true,
     version: "1.0.0",
+    output: forgescript_1.ArgType.String,
     args: [
         forgescript_1.Arg.optionalEnum(typings_1.ColorFormat, "output format", "The desired output format: hex, rgb, rgba, hsl, int, or cmyk."),
     ],

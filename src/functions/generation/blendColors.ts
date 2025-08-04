@@ -1,4 +1,4 @@
-import { NativeFunction, Arg } from "@tryforge/forgescript";
+import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { BlendMode, blendRGB } from "../../helpers/blend";
 import { ColorConverter, parseColor, rgbToString } from "../../helpers";
 import { ColorFormat } from "../../typings";
@@ -11,7 +11,7 @@ export default new NativeFunction({
   brackets: true,
   unwrap: true,
   version: "1.0.0",
-
+  output: ArgType.String,
   args: [
     Arg.requiredString("color 1", "The first color."),
     Arg.requiredString("color 2", "The second color."),

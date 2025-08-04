@@ -1,5 +1,4 @@
-import { NativeFunction, Arg } from "@tryforge/forgescript";
-import { ColorConverter } from "../../helpers/convert";
+import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { ColorFormat } from "../../typings";
 import {
   cmykToString,
@@ -16,6 +15,7 @@ export default new NativeFunction({
   brackets: false,
   unwrap: true,
   version: "1.0.0",
+  output: ArgType.String,
   args: [
     Arg.optionalEnum(
       ColorFormat,

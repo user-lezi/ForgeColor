@@ -11,6 +11,7 @@ exports.default = new forgescript_1.NativeFunction({
     brackets: true,
     unwrap: true,
     version: "1.0.0",
+    output: forgescript_1.ArgType.Number,
     args: [
         forgescript_1.Arg.requiredString("code", "The color string to extract from."),
         forgescript_1.Arg.requiredEnum(typings_1.ColorChannels, "channel", "The channel to extract (e.g. red, hue, cyan)."),
