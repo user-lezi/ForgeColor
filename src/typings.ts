@@ -60,3 +60,10 @@ export type ParsedColorByFormat<T extends ColorFormat = ColorFormat> =
                   k: number;
                 }
               : never;
+
+/** RGB tuple - Comes in Handy */
+export interface RGB {
+  r: number;
+  g: number;
+  b: number;
+}
