@@ -23,7 +23,7 @@ const client = new ForgeClient({
 
 ## Function Reference
 
-For a complete list of available color functions, usage, and examples, see the [FUNCTIONS.md](./FUNCTIONS.md) file.
+For a complete list of available color functions, usage, and examples, see the [ForgeDocs](https://forgedocs.page.gd/#8).
 
 ---
 
