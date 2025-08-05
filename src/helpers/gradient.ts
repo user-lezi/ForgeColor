@@ -1,5 +1,5 @@
-import { RGB } from "../typings";
-import { blendRGB, BlendMode } from "./blend";
+import { BlendMode, RGB } from "../typings";
+import { blendRGB } from "./blend";
 
 export function generateGradient(
   colors: RGB[],

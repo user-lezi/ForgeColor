@@ -53,3 +53,10 @@ export interface RGB {
     g: number;
     b: number;
 }
+export declare enum BlendMode {
+    average = "average",
+    additive = "additive",
+    screen = "screen",
+    multiply = "multiply",
+    gamma = "gamma"
+}

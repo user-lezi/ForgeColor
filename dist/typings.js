@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ColorChannels = exports.ColorFormat = void 0;
+exports.BlendMode = exports.ColorChannels = exports.ColorFormat = void 0;
 var ColorFormat;
 (function (ColorFormat) {
     ColorFormat["rgb"] = "rgb";
@@ -24,3 +24,11 @@ var ColorChannels;
     ColorChannels["yellow"] = "yellow";
     ColorChannels["key"] = "key";
 })(ColorChannels || (exports.ColorChannels = ColorChannels = {}));
+var BlendMode;
+(function (BlendMode) {
+    BlendMode["average"] = "average";
+    BlendMode["additive"] = "additive";
+    BlendMode["screen"] = "screen";
+    BlendMode["multiply"] = "multiply";
+    BlendMode["gamma"] = "gamma";
+})(BlendMode || (exports.BlendMode = BlendMode = {}));

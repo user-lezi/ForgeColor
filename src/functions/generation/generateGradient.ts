@@ -1,8 +1,7 @@
 import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { parseColor, ColorConverter, rgbToString } from "../../helpers";
 import { generateGradient } from "../../helpers/gradient";
-import { ColorFormat, RGB } from "../../typings";
-import { BlendMode } from "../../helpers/blend";
+import { BlendMode, ColorFormat, RGB } from "../../typings";
 
 export default new NativeFunction({
   name: "$generateGradient",

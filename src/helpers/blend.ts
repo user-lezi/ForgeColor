@@ -1,10 +1,4 @@
-export enum BlendMode {
-  average = "average",
-  additive = "additive",
-  screen = "screen",
-  multiply = "multiply",
-  gamma = "gamma",
-}
+import { BlendMode } from "../typings";
 
 export function blendRGB(
   a: [number, number, number],

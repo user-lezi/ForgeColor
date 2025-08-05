@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateGradient = generateGradient;
+const typings_1 = require("../typings");
 const blend_1 = require("./blend");
-function generateGradient(colors, steps, includeStops = false, mode = blend_1.BlendMode.average) {
+function generateGradient(colors, steps, includeStops = false, mode = typings_1.BlendMode.average) {
     const clamp = (v) => Math.max(0, Math.min(255, Math.round(v)));
     if (colors.length < 2) {
         throw new Error("At least two colors are required for gradient generation.");

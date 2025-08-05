@@ -1,7 +1,7 @@
 import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
-import { BlendMode, blendRGB } from "../../helpers/blend";
+import { blendRGB } from "../../helpers/blend";
 import { ColorConverter, parseColor, rgbToString } from "../../helpers";
-import { ColorFormat } from "../../typings";
+import { BlendMode, ColorFormat } from "../../typings";
 
 export default new NativeFunction({
   name: "$blendColors",

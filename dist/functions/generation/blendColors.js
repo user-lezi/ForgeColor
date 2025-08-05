@@ -15,7 +15,7 @@ exports.default = new forgescript_1.NativeFunction({
     args: [
         forgescript_1.Arg.requiredString("color 1", "The first color."),
         forgescript_1.Arg.requiredString("color 2", "The second color."),
-        forgescript_1.Arg.requiredEnum(blend_1.BlendMode, "mode", "The blend mode to use (average, additive, screen, multiply, gamma)."),
+        forgescript_1.Arg.requiredEnum(typings_1.BlendMode, "mode", "The blend mode to use (average, additive, screen, multiply, gamma)."),
         forgescript_1.Arg.optionalNumber("t", 'Blend factor between 0 and 1. Used only for "average" and "gamma" modes. Defaults to 0.5.'),
     ],
     async execute(ctx, [clr1, clr2, mode, t]) {
@@ -28,7 +28,7 @@ exports.default = new forgescript_1.NativeFunction({
             if (!rgb2) {
                 return this.customError(`Could not convert "${clr2}" to RGB — make sure it is a valid color.`);
             }
-            if ((mode === blend_1.BlendMode.average || mode === blend_1.BlendMode.gamma) &&
+            if ((mode === typings_1.BlendMode.average || mode === typings_1.BlendMode.gamma) &&
                 t != null &&
                 (t < 0 || t > 1)) {
                 return this.customError(`Blend factor \`t\` must be between 0 and 1.`);
