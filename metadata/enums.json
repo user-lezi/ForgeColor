@@ -1,1 +1,1 @@
-{"ColorFormat":["rgb","rgba","hex","hsl","int","cmyk"]}
+{"ColorFormat":["rgb","rgba","hex","hsl","int","cmyk"],"BlendMode":["average","additive","screen","multiply","gamma"],"ColorChannels":["red","green","blue","alpha","hue","saturation","lightness","cyan","magenta","yellow","key"]}

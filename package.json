@@ -27,7 +27,7 @@
     "test": "prettier -w src && tsc && echo Done Compiling!! && node dist/__tests__/index.js"
   },
   "devDependencies": {
-    "@tryforge/forgescript": "^2.3.0",
+    "@tryforge/forgescript": "github:tryforge/ForgeScript#dev",
     "@types/node": "^24.0.15",
     "prettier": "^3.6.2",
     "typedoc": "^0.28.7",
