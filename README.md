@@ -16,7 +16,7 @@ npm install github:user-lezi/ForgeColor#dev
 
 ```javascript
 const { ForgeClient } = require("@tryforge/forgescript");
-const ForgeColor = require("forge.color");
+const { ForgeColor } = require("forge.color");
 
 const client = new ForgeClient({
     extensions: [
