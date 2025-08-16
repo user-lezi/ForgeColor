@@ -2,8 +2,14 @@
 A ForgeScript extension for color parsing, conversion, and manipulation — with support for multiple color formats including HEX, RGB, RGBA, HSL, CMYK, and INT.
 
 ## Installation
+### Stable (latest release)
 ```bash
 npm install github:user-lezi/ForgeColor
+```
+
+### Development (from dev branch)
+```bash
+npm install github:user-lezi/ForgeColor#dev
 ```
 
 ## Usage
