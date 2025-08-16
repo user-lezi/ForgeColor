@@ -19,4 +19,5 @@ __exportStar(require("./convert"), exports);
 __exportStar(require("./detectColorType"), exports);
 __exportStar(require("./formatters"), exports);
 __exportStar(require("./gradient"), exports);
+__exportStar(require("./isDark"), exports);
 __exportStar(require("./parseColor"), exports);
