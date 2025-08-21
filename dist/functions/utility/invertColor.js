@@ -11,6 +11,7 @@ exports.default = new forgescript_1.NativeFunction({
     brackets: true,
     unwrap: true,
     version: "1.0.0",
+    output: forgescript_1.ArgType.String,
     args: [forgescript_1.Arg.requiredString("code", "The color to invert.")],
     async execute(ctx, [code]) {
         try {

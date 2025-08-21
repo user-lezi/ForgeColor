@@ -2,15 +2,21 @@
 A ForgeScript extension for color parsing, conversion, and manipulation — with support for multiple color formats including HEX, RGB, RGBA, HSL, CMYK, and INT.
 
 ## Installation
+### Stable (latest release)
 ```bash
 npm install github:user-lezi/ForgeColor
+```
+
+### Development (from dev branch)
+```bash
+npm install github:user-lezi/ForgeColor#dev
 ```
 
 ## Usage
 
 ```javascript
 const { ForgeClient } = require("@tryforge/forgescript");
-const ForgeColor = require("forge.color");
+const { ForgeColor } = require("forge.color");
 
 const client = new ForgeClient({
     extensions: [
@@ -23,7 +29,7 @@ const client = new ForgeClient({
 
 ## Function Reference
 
-For a complete list of available color functions, usage, and examples, see the [FUNCTIONS.md](./FUNCTIONS.md) file.
+For a complete list of available color functions, usage, and examples, see the [ForgeDocs](https://forgedocs.page.gd/#8).
 
 ---
 

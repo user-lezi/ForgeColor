@@ -1,4 +1,4 @@
-import { NativeFunction, Arg } from "@tryforge/forgescript";
+import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { detectColorFormat } from "../../helpers/detectColorType";
 
 export default new NativeFunction({
@@ -9,6 +9,7 @@ export default new NativeFunction({
   version: "1.0.0",
   brackets: true,
   unwrap: true,
+  output: ArgType.String,
   args: [Arg.requiredString("code", "The color code to get the format of")],
   async execute(ctx, [code]) {
     const format = detectColorFormat(code);

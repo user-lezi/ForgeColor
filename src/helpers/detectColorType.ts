@@ -29,16 +29,16 @@ export const ColorParserPatterns = {
   hex: /^#[0-9a-f]{3}$|^#[0-9a-f]{6}$/i,
 
   /** Matches rgb(...) format with percent or numeric values */
-  rgb: new RegExp(`^rgb\\(${rgbBody}\\)$`),
+  rgb: new RegExp(`^rgb\\(\\s*${rgbBody}\\s*\\)$`),
 
   /** Matches rgba(...) format with optional alpha value */
-  rgba: new RegExp(`^rgba\\(${rgbaBody}\\)$`),
+  rgba: new RegExp(`^rgba\\(\\s*${rgbaBody}\\s*\\)$`),
 
   /** Matches hsl(...) format with various forms of values */
-  hsl: new RegExp(`^hsl\\(${hslBody}\\)$`),
+  hsl: new RegExp(`^hsl\\(\\s*${hslBody}\\s*\\)$`),
 
   /** Matches cmyk(...) with percent or float components */
-  cmyk: new RegExp(`^cmyk\\(${cmykBody}\\)$`),
+  cmyk: new RegExp(`^cmyk\\(\\s*${cmykBody}\\s*\\)$`),
 
   /** Matches integer form (decimal or hex) */
   int: /^(0x)?[0-9a-f]+$/i,

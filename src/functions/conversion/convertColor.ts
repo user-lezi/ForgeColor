@@ -1,4 +1,4 @@
-import { NativeFunction, Arg } from "@tryforge/forgescript";
+import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { ColorConverter } from "../../helpers/convert";
 import { ColorFormat } from "../../typings";
 
@@ -10,6 +10,7 @@ export default new NativeFunction({
   brackets: true,
   unwrap: true,
   version: "1.0.0",
+  output: ArgType.String,
   args: [
     Arg.requiredString("code", "The color string to convert."),
     Arg.requiredEnum(ColorFormat, "to", "The format to convert the color to."),

@@ -12,10 +12,10 @@ const hslBody = `${number}${comma}${percent}${comma}${percent}`;
 const cmykBody = `${percent}${comma}${percent}${comma}${percent}${comma}${percent}`;
 exports.ColorParserPatterns = {
     hex: /^#[0-9a-f]{3}$|^#[0-9a-f]{6}$/i,
-    rgb: new RegExp(`^rgb\\(${rgbBody}\\)$`),
-    rgba: new RegExp(`^rgba\\(${rgbaBody}\\)$`),
-    hsl: new RegExp(`^hsl\\(${hslBody}\\)$`),
-    cmyk: new RegExp(`^cmyk\\(${cmykBody}\\)$`),
+    rgb: new RegExp(`^rgb\\(\\s*${rgbBody}\\s*\\)$`),
+    rgba: new RegExp(`^rgba\\(\\s*${rgbaBody}\\s*\\)$`),
+    hsl: new RegExp(`^hsl\\(\\s*${hslBody}\\s*\\)$`),
+    cmyk: new RegExp(`^cmyk\\(\\s*${cmykBody}\\s*\\)$`),
     int: /^(0x)?[0-9a-f]+$/i,
 };
 function detectColorFormat(input) {

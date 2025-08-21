@@ -48,3 +48,15 @@ export type ParsedColorByFormat<T extends ColorFormat = ColorFormat> = T extends
     y: number;
     k: number;
 } : never;
+export interface RGB {
+    r: number;
+    g: number;
+    b: number;
+}
+export declare enum BlendMode {
+    average = "average",
+    additive = "additive",
+    screen = "screen",
+    multiply = "multiply",
+    gamma = "gamma"
+}
