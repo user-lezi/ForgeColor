@@ -1,1 +1,1 @@
-{"ColorFormat":["rgb","rgba","hex","hsl","int","cmyk"],"BlendMode":["average","additive","screen","multiply","gamma"],"ColorChannels":["red","green","blue","alpha","hue","saturation","lightness","cyan","magenta","yellow","key"]}
+{"ColorFormat":["rgb","rgba","hex","hsl","int","cmyk"],"BlendMode":["average","additive","screen","multiply","gamma"],"ColorDistanceMode":["EuclideanRGB","WeightedRGB","CIE76","Luminance"],"ColorChannels":["red","green","blue","alpha","hue","saturation","lightness","cyan","magenta","yellow","key"]}

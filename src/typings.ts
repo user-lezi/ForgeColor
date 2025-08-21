@@ -75,3 +75,10 @@ export enum BlendMode {
   multiply = "multiply",
   gamma = "gamma",
 }
+
+export enum ColorDistanceMode {
+  EuclideanRGB = "rgb",
+  WeightedRGB = "weighted",
+  CIE76 = "cie76",
+  Luminance = "luminance",
+}
