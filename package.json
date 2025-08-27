@@ -1,6 +1,6 @@
 {
   "name": "forge.color",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Color tools for ForgeScript: gradients, palettes, blending, and contrast",
   "keywords": [
     "forgecanvas",

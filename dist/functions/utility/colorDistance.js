@@ -10,7 +10,7 @@ exports.default = new forgescript_1.NativeFunction({
     description: "Calculates the distance between two colors using a specified formula. Defaults to cie76.",
     brackets: true,
     unwrap: true,
-    version: "1.0.1",
+    version: "1.0.2",
     output: forgescript_1.ArgType.Number,
     args: [
         forgescript_1.Arg.requiredString("color1", "The first color."),
