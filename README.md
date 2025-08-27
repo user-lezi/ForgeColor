@@ -29,7 +29,7 @@ const client = new ForgeClient({
 
 ## Function Reference
 
-For a complete list of available color functions, usage, and examples, see the [ForgeDocs](https://forgedocs.page.gd/#8).
+For a complete list of available color functions, usage, and examples, see the [ForgeColor's Documentation](https://docs.botforge.org/?p=ForgeColor).
 
 ---
 
