@@ -21,3 +21,4 @@ __exportStar(require("./formatters"), exports);
 __exportStar(require("./gradient"), exports);
 __exportStar(require("./isDark"), exports);
 __exportStar(require("./parseColor"), exports);
+__exportStar(require("./temperature"), exports);

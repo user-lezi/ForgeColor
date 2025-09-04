@@ -5,3 +5,4 @@ export * from "./formatters";
 export * from "./gradient";
 export * from "./isDark";
 export * from "./parseColor";
+export * from "./temperature";
