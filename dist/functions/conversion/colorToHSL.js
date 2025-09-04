@@ -11,12 +11,12 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: true,
     version: "1.0.1",
     output: forgescript_1.ArgType.String,
-    args: [forgescript_1.Arg.requiredString("code", "The color string to convert.")],
-    async execute(ctx, [code]) {
+    args: [forgescript_1.Arg.requiredString("color", "The color string to convert.")],
+    async execute(ctx, [color]) {
         try {
-            const result = convert_1.ColorConverter.convert(code, typings_1.ColorFormat.hsl);
+            const result = convert_1.ColorConverter.convert(color, typings_1.ColorFormat.hsl);
             if (!result) {
-                return this.customError(`Could not convert "${code}" to HSL — make sure it is a valid color format.`);
+                return this.customError(`Could not convert "${color}" to HSL — make sure it is a valid color format.`);
             }
             return this.success(result);
         }

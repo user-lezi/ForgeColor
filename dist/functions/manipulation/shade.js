@@ -13,22 +13,22 @@ exports.default = new forgescript_1.NativeFunction({
     version: "1.0.2",
     output: forgescript_1.ArgType.String,
     args: [
-        forgescript_1.Arg.requiredString("code", "The color to shade."),
+        forgescript_1.Arg.requiredString("color", "The color to shade."),
         forgescript_1.Arg.requiredNumber("amount", "Amount to darken (0–1)."),
     ],
-    async execute(ctx, [code, amount]) {
+    async execute(ctx, [color, amount]) {
         try {
-            const originalFormat = (0, helpers_1.detectColorFormat)(code);
+            const originalFormat = (0, helpers_1.detectColorFormat)(color);
             if (!originalFormat) {
-                return this.customError(`Could not detect color format for "${code}".`);
+                return this.customError(`Could not detect color format for "${color}".`);
             }
-            const rgbConverted = convert_1.ColorConverter.convert(code, typings_1.ColorFormat.rgb);
+            const rgbConverted = convert_1.ColorConverter.convert(color, typings_1.ColorFormat.rgb);
             if (!rgbConverted) {
-                return this.customError(`Could not convert "${code}" to RGB.`);
+                return this.customError(`Could not convert "${color}" to RGB.`);
             }
             const parsed = (0, helpers_1.parseColor)(rgbConverted, typings_1.ColorFormat.rgb);
             if (!parsed || parsed.format !== typings_1.ColorFormat.rgb) {
-                return this.customError(`Could not parse "${code}" as RGB.`);
+                return this.customError(`Could not parse "${color}" as RGB.`);
             }
             if (amount < 0 || amount > 1) {
                 return this.customError(`Amount must be between 0 and 1.`);

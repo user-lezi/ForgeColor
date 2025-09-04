@@ -13,14 +13,14 @@ exports.default = new forgescript_1.NativeFunction({
     version: "1.0.0",
     output: forgescript_1.ArgType.Number,
     args: [
-        forgescript_1.Arg.requiredString("code", "The color string to extract from."),
+        forgescript_1.Arg.requiredString("color", "The color string to extract from."),
         forgescript_1.Arg.requiredEnum(typings_1.ColorChannels, "channel", "The channel to extract (e.g. red, hue, cyan)."),
     ],
-    async execute(ctx, [code, channel]) {
+    async execute(ctx, [color, channel]) {
         try {
-            const format = (0, helpers_1.detectColorFormat)(code);
+            const format = (0, helpers_1.detectColorFormat)(color);
             if (!format) {
-                return this.customError(` Could not detect color format for "${code}". Make sure it's a valid hex, rgb, rgba, hsl, or cmyk code.`);
+                return this.customError(` Could not detect color format for "${color}". Make sure it's a valid hex, rgb, rgba, hsl, or cmyk code.`);
             }
             let toFormat;
             switch (channel) {
@@ -42,7 +42,7 @@ exports.default = new forgescript_1.NativeFunction({
                     toFormat = typings_1.ColorFormat.cmyk;
                     break;
             }
-            const converted = convert_1.ColorConverter.convert(code, toFormat);
+            const converted = convert_1.ColorConverter.convert(color, toFormat);
             if (!converted) {
                 return this.customError(`Could not convert color to ${toFormat}.`);
             }

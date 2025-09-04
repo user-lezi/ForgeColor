@@ -19,18 +19,18 @@ export default new NativeFunction({
     ),
   ],
 
-  async execute(ctx, [code, returnKelvin]) {
+  async execute(ctx, [color, returnKelvin]) {
     try {
       // Convert to RGB string
-      const rgbStr = ColorConverter.convert(code, ColorFormat.rgb);
+      const rgbStr = ColorConverter.convert(color, ColorFormat.rgb);
       if (!rgbStr) {
-        return this.customError(`Could not convert "${code}" to RGB.`);
+        return this.customError(`Could not convert "${color}" to RGB.`);
       }
 
       // Parse into RGB values
       const parsed = parseColor(rgbStr, ColorFormat.rgb);
       if (!parsed || parsed.format !== ColorFormat.rgb) {
-        return this.customError(`Failed to parse "${code}" as RGB.`);
+        return this.customError(`Failed to parse "${color}" as RGB.`);
       }
 
       // Compute temperature
@@ -43,7 +43,7 @@ export default new NativeFunction({
       // Return based on flag
       if (returnKelvin) {
         if (!kelvin) {
-          return this.customError(`Could not estimate Kelvin for "${code}".`);
+          return this.customError(`Could not estimate Kelvin for "${color}".`);
         }
         return this.success(kelvin);
       } else {

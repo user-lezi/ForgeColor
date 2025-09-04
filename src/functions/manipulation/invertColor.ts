@@ -12,16 +12,18 @@ export default new NativeFunction({
   unwrap: true,
   version: "1.0.0",
   output: ArgType.String,
-  args: [Arg.requiredString("code", "The color to invert.")],
+  args: [Arg.requiredString("color", "The color to invert.")],
 
-  async execute(ctx, [code]) {
+  async execute(ctx, [color]) {
     try {
-      const originalFormat = detectColorFormat(code);
+      const originalFormat = detectColorFormat(color);
       if (!originalFormat) {
-        return this.customError(`Could not detect color format for "${code}".`);
+        return this.customError(
+          `Could not detect color format for "${color}".`,
+        );
       }
 
-      const rgbConverted = ColorConverter.convert(code, ColorFormat.rgb);
+      const rgbConverted = ColorConverter.convert(color, ColorFormat.rgb);
       if (!rgbConverted) {
         return this.customError(`Failed to convert color to RGB.`);
       }

@@ -10,9 +10,9 @@ exports.default = new forgescript_1.NativeFunction({
     brackets: true,
     unwrap: true,
     output: forgescript_1.ArgType.String,
-    args: [forgescript_1.Arg.requiredString("code", "The color code to get the format of")],
-    async execute(ctx, [code]) {
-        const format = (0, detectColorType_1.detectColorFormat)(code);
+    args: [forgescript_1.Arg.requiredString("color", "The color code to get the format of")],
+    async execute(ctx, [color]) {
+        const format = (0, detectColorType_1.detectColorFormat)(color);
         return this.success(format ?? "unknown");
     },
 });

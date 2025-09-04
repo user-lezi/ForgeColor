@@ -8,9 +8,9 @@ export default new NativeFunction({
   unwrap: true,
   brackets: true,
   output: ArgType.Boolean,
-  args: [Arg.requiredString("code", "The color code to check validity of")],
-  execute(ctx, [code]) {
-    const format = detectColorFormat(code);
+  args: [Arg.requiredString("color", "The color code to check validity of")],
+  execute(ctx, [color]) {
+    const format = detectColorFormat(color);
     return this.success(format !== null);
   },
 });

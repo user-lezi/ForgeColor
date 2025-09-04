@@ -13,25 +13,27 @@ export default new NativeFunction({
   output: ArgType.String,
 
   args: [
-    Arg.requiredString("code", "The color to tint."),
+    Arg.requiredString("color", "The color to tint."),
     Arg.requiredNumber("amount", "Amount to lighten (0–1)."),
   ],
 
-  async execute(ctx, [code, amount]) {
+  async execute(ctx, [color, amount]) {
     try {
-      const originalFormat = detectColorFormat(code);
+      const originalFormat = detectColorFormat(color);
       if (!originalFormat) {
-        return this.customError(`Could not detect color format for "${code}".`);
+        return this.customError(
+          `Could not detect color format for "${color}".`,
+        );
       }
 
-      const rgbConverted = ColorConverter.convert(code, ColorFormat.rgb);
+      const rgbConverted = ColorConverter.convert(color, ColorFormat.rgb);
       if (!rgbConverted) {
-        return this.customError(`Could not convert "${code}" to RGB.`);
+        return this.customError(`Could not convert "${color}" to RGB.`);
       }
 
       const parsed = parseColor(rgbConverted, ColorFormat.rgb);
       if (!parsed || parsed.format !== ColorFormat.rgb) {
-        return this.customError(`Could not parse "${code}" as RGB.`);
+        return this.customError(`Could not parse "${color}" as RGB.`);
       }
 
       if (amount < 0 || amount > 1) {

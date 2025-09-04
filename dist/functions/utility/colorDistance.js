@@ -13,8 +13,8 @@ exports.default = new forgescript_1.NativeFunction({
     version: "1.0.2",
     output: forgescript_1.ArgType.Number,
     args: [
-        forgescript_1.Arg.requiredString("color1", "The first color."),
-        forgescript_1.Arg.requiredString("color2", "The second color."),
+        forgescript_1.Arg.requiredString("color 1", "The first color."),
+        forgescript_1.Arg.requiredString("color 2", "The second color."),
         forgescript_1.Arg.optionalEnum(typings_1.ColorDistanceMode, "mode", "Distance mode: rgb, weighted, cie76, or luminance."),
     ],
     async execute(ctx, [clr1, clr2, mode]) {

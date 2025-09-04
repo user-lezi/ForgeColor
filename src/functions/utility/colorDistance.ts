@@ -13,8 +13,8 @@ export default new NativeFunction({
   version: "1.0.2",
   output: ArgType.Number,
   args: [
-    Arg.requiredString("color1", "The first color."),
-    Arg.requiredString("color2", "The second color."),
+    Arg.requiredString("color 1", "The first color."),
+    Arg.requiredString("color 2", "The second color."),
     Arg.optionalEnum(
       ColorDistanceMode,
       "mode",

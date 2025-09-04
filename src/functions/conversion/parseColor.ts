@@ -9,10 +9,10 @@ export default new NativeFunction({
   unwrap: true,
   version: "1.0.0",
   output: ArgType.Json,
-  args: [Arg.requiredString("code", "The color string to parse")],
-  async execute(ctx, [code]) {
+  args: [Arg.requiredString("color", "The color string to parse")],
+  async execute(ctx, [color]) {
     try {
-      const result = parseColor(code);
+      const result = parseColor(color);
       return this.successJSON(result);
     } catch (err) {
       return this.customError(

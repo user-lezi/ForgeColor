@@ -12,20 +12,20 @@ export default new NativeFunction({
   version: "1.0.1",
   output: ArgType.String,
   args: [
-    Arg.requiredString("code", "The color string to convert."),
+    Arg.requiredString("color", "The color string to convert."),
     Arg.optionalBoolean("alpha", "Whether to return as RGBA"),
   ],
 
-  async execute(ctx, [code, alpha]) {
+  async execute(ctx, [color, alpha]) {
     try {
       const result = ColorConverter.convert(
-        code,
+        color,
         alpha == true ? ColorFormat.rgba : ColorFormat.rgb,
       );
 
       if (!result) {
         return this.customError(
-          `Could not convert "${code}" to ${alpha ? "RGBA" : "RGB"} — make sure it is a valid color format.`,
+          `Could not convert "${color}" to ${alpha ? "RGBA" : "RGB"} — make sure it is a valid color format.`,
         );
       }
 

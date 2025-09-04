@@ -15,15 +15,15 @@ exports.default = new forgescript_1.NativeFunction({
         forgescript_1.Arg.requiredString("color", "The input color."),
         forgescript_1.Arg.optionalBoolean("returnKelvin", "If true, return the approximate Kelvin instead of warm/cool/neutral classification."),
     ],
-    async execute(ctx, [code, returnKelvin]) {
+    async execute(ctx, [color, returnKelvin]) {
         try {
-            const rgbStr = helpers_1.ColorConverter.convert(code, typings_1.ColorFormat.rgb);
+            const rgbStr = helpers_1.ColorConverter.convert(color, typings_1.ColorFormat.rgb);
             if (!rgbStr) {
-                return this.customError(`Could not convert "${code}" to RGB.`);
+                return this.customError(`Could not convert "${color}" to RGB.`);
             }
             const parsed = (0, helpers_1.parseColor)(rgbStr, typings_1.ColorFormat.rgb);
             if (!parsed || parsed.format !== typings_1.ColorFormat.rgb) {
-                return this.customError(`Failed to parse "${code}" as RGB.`);
+                return this.customError(`Failed to parse "${color}" as RGB.`);
             }
             const { category, kelvin } = (0, helpers_1.rgbTemperature)({
                 r: parsed.r,
@@ -32,7 +32,7 @@ exports.default = new forgescript_1.NativeFunction({
             });
             if (returnKelvin) {
                 if (!kelvin) {
-                    return this.customError(`Could not estimate Kelvin for "${code}".`);
+                    return this.customError(`Could not estimate Kelvin for "${color}".`);
                 }
                 return this.success(kelvin);
             }

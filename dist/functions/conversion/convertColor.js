@@ -12,14 +12,14 @@ exports.default = new forgescript_1.NativeFunction({
     version: "1.0.0",
     output: forgescript_1.ArgType.String,
     args: [
-        forgescript_1.Arg.requiredString("code", "The color string to convert."),
+        forgescript_1.Arg.requiredString("color", "The color string to convert."),
         forgescript_1.Arg.requiredEnum(typings_1.ColorFormat, "to", "The format to convert the color to."),
     ],
-    async execute(ctx, [code, to]) {
+    async execute(ctx, [color, to]) {
         try {
-            const result = convert_1.ColorConverter.convert(code, to);
+            const result = convert_1.ColorConverter.convert(color, to);
             if (!result) {
-                return this.customError(`Could not convert "${code}" to ${to.toUpperCase()} — make sure it is a valid color format.`);
+                return this.customError(`Could not convert "${color}" to ${to.toUpperCase()} — make sure it is a valid color format.`);
             }
             return this.success(result);
         }
