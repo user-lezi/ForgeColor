@@ -1,8 +1,7 @@
 import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { ColorConverter } from "../../helpers/convert";
-import { detectColorFormat, parseColor } from "../../helpers";
+import { detectColorFormat, parseColor, tint } from "../../helpers";
 import { ColorFormat } from "../../typings";
-import { tint } from "../../helpers/manipulate";
 
 export default new NativeFunction({
   name: "$tint",

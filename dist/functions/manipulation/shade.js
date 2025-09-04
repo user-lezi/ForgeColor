@@ -4,7 +4,6 @@ const forgescript_1 = require("@tryforge/forgescript");
 const convert_1 = require("../../helpers/convert");
 const helpers_1 = require("../../helpers");
 const typings_1 = require("../../typings");
-const manipulate_1 = require("../../helpers/manipulate");
 exports.default = new forgescript_1.NativeFunction({
     name: "$shade",
     aliases: ["$shadeColor"],
@@ -34,7 +33,7 @@ exports.default = new forgescript_1.NativeFunction({
             if (amount < 0 || amount > 1) {
                 return this.customError(`Amount must be between 0 and 1.`);
             }
-            const { r, g, b } = (0, manipulate_1.shade)(parsed, amount);
+            const { r, g, b } = (0, helpers_1.shade)(parsed, amount);
             const shadedRGB = `rgb(${r}, ${g}, ${b})`;
             const finalColor = convert_1.ColorConverter.convert(shadedRGB, originalFormat);
             if (!finalColor) {

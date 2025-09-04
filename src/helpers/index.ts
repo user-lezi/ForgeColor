@@ -4,5 +4,6 @@ export * from "./detectColorType";
 export * from "./formatters";
 export * from "./gradient";
 export * from "./isDark";
+export * from "./manipulate";
 export * from "./parseColor";
 export * from "./temperature";
