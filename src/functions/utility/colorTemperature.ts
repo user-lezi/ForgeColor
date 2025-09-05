@@ -3,8 +3,8 @@ import { ColorConverter, parseColor, rgbTemperature } from "../../helpers";
 import { ColorFormat } from "../../typings";
 
 export default new NativeFunction({
-  name: "$temperatureFromColor",
-  aliases: ["$colorToTemperature", "$colorTemp"],
+  name: "$colorTemperature",
+  aliases: ["$temperatureFromColor", "$colorToTemperature", "$colorTemp"],
   description: "Estimates the color temperature (Kelvin) from a given color.",
   brackets: true,
   unwrap: true,

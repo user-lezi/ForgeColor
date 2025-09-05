@@ -4,8 +4,8 @@ const forgescript_1 = require("@tryforge/forgescript");
 const helpers_1 = require("../../helpers");
 const typings_1 = require("../../typings");
 exports.default = new forgescript_1.NativeFunction({
-    name: "$temperatureFromColor",
-    aliases: ["$colorToTemperature", "$colorTemp"],
+    name: "$colorTemperature",
+    aliases: ["$temperatureFromColor", "$colorToTemperature", "$colorTemp"],
     description: "Estimates the color temperature (Kelvin) from a given color.",
     brackets: true,
     unwrap: true,
