@@ -15,6 +15,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./blend"), exports);
+__exportStar(require("./contrastRatio"), exports);
 __exportStar(require("./convert"), exports);
 __exportStar(require("./detectColorType"), exports);
 __exportStar(require("./formatters"), exports);
