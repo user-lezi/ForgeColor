@@ -1,7 +1,6 @@
 import { NativeFunction, Arg, ArgType } from "@tryforge/forgescript";
 import { ColorDistanceMode, ColorFormat } from "../../typings";
-import { ColorConverter, parseColor } from "../../helpers";
-import { colorDistance } from "../../helpers/colorDistance";
+import { ColorConverter, colorDistance, parseColor } from "../../helpers";
 
 export default new NativeFunction({
   name: "$colorDistance",

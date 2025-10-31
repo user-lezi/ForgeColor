@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const typings_1 = require("../../typings");
 const helpers_1 = require("../../helpers");
-const colorDistance_1 = require("../../helpers/colorDistance");
 exports.default = new forgescript_1.NativeFunction({
     name: "$colorDistance",
     aliases: ["$colorDifference", "$colorDiff", "$colorSimilarity"],
@@ -27,7 +26,7 @@ exports.default = new forgescript_1.NativeFunction({
             if (!rgb2) {
                 return this.customError(`Could not convert "${clr2}" to RGB — make sure it is a valid color.`);
             }
-            const distance = (0, colorDistance_1.colorDistance)(rgb1, rgb2, mode ?? typings_1.ColorDistanceMode.CIE76);
+            const distance = (0, helpers_1.colorDistance)(rgb1, rgb2, mode ?? typings_1.ColorDistanceMode.CIE76);
             return this.success(distance);
         }
         catch (err) {

@@ -1,4 +1,5 @@
 export * from "./blend";
+export * from "./colorDistance";
 export * from "./contrastRatio";
 export * from "./convert";
 export * from "./detectColorType";
