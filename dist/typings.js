@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BlendMode = exports.ColorChannels = exports.ColorFormat = void 0;
+exports.ColorDistanceMode = exports.BlendMode = exports.ColorChannels = exports.ColorFormat = void 0;
 var ColorFormat;
 (function (ColorFormat) {
     ColorFormat["rgb"] = "rgb";
@@ -32,3 +32,10 @@ var BlendMode;
     BlendMode["multiply"] = "multiply";
     BlendMode["gamma"] = "gamma";
 })(BlendMode || (exports.BlendMode = BlendMode = {}));
+var ColorDistanceMode;
+(function (ColorDistanceMode) {
+    ColorDistanceMode["EuclideanRGB"] = "rgb";
+    ColorDistanceMode["WeightedRGB"] = "weighted";
+    ColorDistanceMode["CIE76"] = "cie76";
+    ColorDistanceMode["Luminance"] = "luminance";
+})(ColorDistanceMode || (exports.ColorDistanceMode = ColorDistanceMode = {}));

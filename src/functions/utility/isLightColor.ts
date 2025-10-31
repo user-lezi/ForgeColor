@@ -21,17 +21,17 @@ export default new NativeFunction({
     ),
   ],
 
-  async execute(ctx, [code, threshold]) {
+  async execute(ctx, [color, threshold]) {
     try {
       // Convert input to RGB
-      const rgbStr = ColorConverter.convert(code, ColorFormat.rgb);
+      const rgbStr = ColorConverter.convert(color, ColorFormat.rgb);
       if (!rgbStr) {
-        return this.customError(`Could not convert "${code}" to RGB.`);
+        return this.customError(`Could not convert "${color}" to RGB.`);
       }
 
       const parsed = parseColor(rgbStr, ColorFormat.rgb);
       if (!parsed) {
-        return this.customError(`Could not parse "${code}" as RGB.`);
+        return this.customError(`Could not parse "${color}" as RGB.`);
       }
 
       const result = !isDarkColor(

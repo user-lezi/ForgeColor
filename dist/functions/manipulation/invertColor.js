@@ -12,14 +12,14 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: true,
     version: "1.0.0",
     output: forgescript_1.ArgType.String,
-    args: [forgescript_1.Arg.requiredString("code", "The color to invert.")],
-    async execute(ctx, [code]) {
+    args: [forgescript_1.Arg.requiredString("color", "The color to invert.")],
+    async execute(ctx, [color]) {
         try {
-            const originalFormat = (0, helpers_1.detectColorFormat)(code);
+            const originalFormat = (0, helpers_1.detectColorFormat)(color);
             if (!originalFormat) {
-                return this.customError(`Could not detect color format for "${code}".`);
+                return this.customError(`Could not detect color format for "${color}".`);
             }
-            const rgbConverted = convert_1.ColorConverter.convert(code, typings_1.ColorFormat.rgb);
+            const rgbConverted = convert_1.ColorConverter.convert(color, typings_1.ColorFormat.rgb);
             if (!rgbConverted) {
                 return this.customError(`Failed to convert color to RGB.`);
             }

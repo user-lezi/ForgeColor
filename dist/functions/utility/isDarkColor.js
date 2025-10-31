@@ -16,15 +16,15 @@ exports.default = new forgescript_1.NativeFunction({
         forgescript_1.Arg.requiredString("color", "The color code to check."),
         forgescript_1.Arg.optionalNumber("threshold", "Override default luminance cutoff (0–1, default 0.5)."),
     ],
-    async execute(ctx, [code, threshold]) {
+    async execute(ctx, [color, threshold]) {
         try {
-            const rgbStr = helpers_1.ColorConverter.convert(code, typings_1.ColorFormat.rgb);
+            const rgbStr = helpers_1.ColorConverter.convert(color, typings_1.ColorFormat.rgb);
             if (!rgbStr) {
-                return this.customError(`Could not convert "${code}" to RGB.`);
+                return this.customError(`Could not convert "${color}" to RGB.`);
             }
             const parsed = (0, helpers_1.parseColor)(rgbStr, typings_1.ColorFormat.rgb);
             if (!parsed) {
-                return this.customError(`Could not parse "${code}" as RGB.`);
+                return this.customError(`Could not parse "${color}" as RGB.`);
             }
             const result = (0, isDark_1.isDarkColor)([parsed.r, parsed.g, parsed.b], threshold ?? 0.5);
             return this.success(result);

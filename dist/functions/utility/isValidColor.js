@@ -9,9 +9,9 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: true,
     brackets: true,
     output: forgescript_1.ArgType.Boolean,
-    args: [forgescript_1.Arg.requiredString("code", "The color code to check validity of")],
-    execute(ctx, [code]) {
-        const format = (0, helpers_1.detectColorFormat)(code);
+    args: [forgescript_1.Arg.requiredString("color", "The color code to check validity of")],
+    execute(ctx, [color]) {
+        const format = (0, helpers_1.detectColorFormat)(color);
         return this.success(format !== null);
     },
 });

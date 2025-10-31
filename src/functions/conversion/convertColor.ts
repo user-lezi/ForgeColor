@@ -12,17 +12,17 @@ export default new NativeFunction({
   version: "1.0.0",
   output: ArgType.String,
   args: [
-    Arg.requiredString("code", "The color string to convert."),
+    Arg.requiredString("color", "The color string to convert."),
     Arg.requiredEnum(ColorFormat, "to", "The format to convert the color to."),
   ],
 
-  async execute(ctx, [code, to]) {
+  async execute(ctx, [color, to]) {
     try {
-      const result = ColorConverter.convert(code, to);
+      const result = ColorConverter.convert(color, to);
 
       if (!result) {
         return this.customError(
-          `Could not convert "${code}" to ${to.toUpperCase()} — make sure it is a valid color format.`,
+          `Could not convert "${color}" to ${to.toUpperCase()} — make sure it is a valid color format.`,
         );
       }
 

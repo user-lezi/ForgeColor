@@ -12,14 +12,14 @@ exports.default = new forgescript_1.NativeFunction({
     version: "1.0.1",
     output: forgescript_1.ArgType.String,
     args: [
-        forgescript_1.Arg.requiredString("code", "The color string to convert."),
+        forgescript_1.Arg.requiredString("color", "The color string to convert."),
         forgescript_1.Arg.optionalBoolean("alpha", "Whether to return as RGBA"),
     ],
-    async execute(ctx, [code, alpha]) {
+    async execute(ctx, [color, alpha]) {
         try {
-            const result = convert_1.ColorConverter.convert(code, alpha == true ? typings_1.ColorFormat.rgba : typings_1.ColorFormat.rgb);
+            const result = convert_1.ColorConverter.convert(color, alpha == true ? typings_1.ColorFormat.rgba : typings_1.ColorFormat.rgb);
             if (!result) {
-                return this.customError(`Could not convert "${code}" to ${alpha ? "RGBA" : "RGB"} — make sure it is a valid color format.`);
+                return this.customError(`Could not convert "${color}" to ${alpha ? "RGBA" : "RGB"} — make sure it is a valid color format.`);
             }
             return this.success(result);
         }

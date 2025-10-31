@@ -11,19 +11,19 @@ export default new NativeFunction({
   unwrap: true,
   version: "1.0.0",
   output: ArgType.String,
-  args: [Arg.requiredString("code", "The color string to prettify.")],
+  args: [Arg.requiredString("color", "The color string to prettify.")],
 
-  async execute(ctx, [code]) {
+  async execute(ctx, [color]) {
     try {
-      const format = detectColorFormat(code);
+      const format = detectColorFormat(color);
 
       if (!format) {
         return this.customError(
-          `Could not detect color format for "${code}". Make sure it is a valid hex, rgb, rgba, hsl, or cmyk code.`,
+          `Could not detect color format for "${color}". Make sure it is a valid hex, rgb, rgba, hsl, or cmyk code.`,
         );
       }
 
-      const result = ColorConverter.convert(code, format);
+      const result = ColorConverter.convert(color, format);
 
       if (!result) {
         return this.customError(

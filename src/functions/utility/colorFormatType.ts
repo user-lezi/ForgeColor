@@ -10,9 +10,9 @@ export default new NativeFunction({
   brackets: true,
   unwrap: true,
   output: ArgType.String,
-  args: [Arg.requiredString("code", "The color code to get the format of")],
-  async execute(ctx, [code]) {
-    const format = detectColorFormat(code);
+  args: [Arg.requiredString("color", "The color code to get the format of")],
+  async execute(ctx, [color]) {
+    const format = detectColorFormat(color);
     return this.success(format ?? "unknown");
   },
 });

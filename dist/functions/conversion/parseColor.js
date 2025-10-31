@@ -10,10 +10,10 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: true,
     version: "1.0.0",
     output: forgescript_1.ArgType.Json,
-    args: [forgescript_1.Arg.requiredString("code", "The color string to parse")],
-    async execute(ctx, [code]) {
+    args: [forgescript_1.Arg.requiredString("color", "The color string to parse")],
+    async execute(ctx, [color]) {
         try {
-            const result = (0, parseColor_1.parseColor)(code);
+            const result = (0, parseColor_1.parseColor)(color);
             return this.successJSON(result);
         }
         catch (err) {

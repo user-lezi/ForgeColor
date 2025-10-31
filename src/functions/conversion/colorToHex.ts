@@ -11,15 +11,15 @@ export default new NativeFunction({
   unwrap: true,
   version: "1.0.1",
   output: ArgType.String,
-  args: [Arg.requiredString("code", "The color string to convert.")],
+  args: [Arg.requiredString("color", "The color string to convert.")],
 
-  async execute(ctx, [code]) {
+  async execute(ctx, [color]) {
     try {
-      const result = ColorConverter.convert(code, ColorFormat.hex);
+      const result = ColorConverter.convert(color, ColorFormat.hex);
 
       if (!result) {
         return this.customError(
-          `Could not convert "${code}" to HEX — make sure it is a valid color format.`,
+          `Could not convert "${color}" to HEX — make sure it is a valid color format.`,
         );
       }
 

@@ -13,7 +13,7 @@ export default new NativeFunction({
   version: "1.0.0",
   output: ArgType.Number,
   args: [
-    Arg.requiredString("code", "The color string to extract from."),
+    Arg.requiredString("color", "The color string to extract from."),
     Arg.requiredEnum(
       ColorChannels,
       "channel",
@@ -21,13 +21,13 @@ export default new NativeFunction({
     ),
   ],
 
-  async execute(ctx, [code, channel]) {
+  async execute(ctx, [color, channel]) {
     try {
-      const format = detectColorFormat(code);
+      const format = detectColorFormat(color);
 
       if (!format) {
         return this.customError(
-          ` Could not detect color format for "${code}". Make sure it's a valid hex, rgb, rgba, hsl, or cmyk code.`,
+          ` Could not detect color format for "${color}". Make sure it's a valid hex, rgb, rgba, hsl, or cmyk code.`,
         );
       }
 
@@ -55,7 +55,7 @@ export default new NativeFunction({
           break;
       }
 
-      const converted = ColorConverter.convert(code, toFormat);
+      const converted = ColorConverter.convert(color, toFormat);
 
       if (!converted) {
         return this.customError(`Could not convert color to ${toFormat}.`);
