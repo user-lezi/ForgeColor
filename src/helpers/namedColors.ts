@@ -1,9 +1,7 @@
 import { ForgeColor } from "..";
 
 export function isNamedColor(name: string): boolean {
-  return ForgeColor.Colors.some(
-    (c) => c.name.toLowerCase() === name.toLowerCase(),
-  );
+  return ForgeColor.IsNamedColor(name);
 }
 
 export function searchColorName(

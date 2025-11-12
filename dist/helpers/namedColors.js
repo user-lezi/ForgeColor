@@ -4,7 +4,7 @@ exports.isNamedColor = isNamedColor;
 exports.searchColorName = searchColorName;
 const __1 = require("..");
 function isNamedColor(name) {
-    return __1.ForgeColor.Colors.some((c) => c.name.toLowerCase() === name.toLowerCase());
+    return __1.ForgeColor.IsNamedColor(name);
 }
 function searchColorName(query, limit = 5) {
     const lowerQuery = query.toLowerCase();

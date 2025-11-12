@@ -22,7 +22,38 @@ class ForgeColor extends forgescript_1.ForgeExtension {
     name = "ForgeColor";
     description = require("../package.json").description;
     version = require("../package.json").version;
+    options;
     static Colors = require("../colors.json");
+    constructor(options = {}) {
+        super();
+        const opts = { customColorNames: [] };
+        if (options.customColorNames?.length) {
+            for (const color of options.customColorNames) {
+                if (!color.name || typeof color.name !== "string")
+                    throw new Error(`Invalid color name: ${color.name}`);
+                if (!color.color ||
+                    (typeof color.color !== "string" && typeof color.color !== "number"))
+                    throw new Error(`Invalid color value for "${color.name}"`);
+                let value;
+                if (typeof color.color === "number") {
+                    if (color.color < 0x000000 || color.color > 0xffffff)
+                        throw new Error(`Numeric color value for "${color.name}" must be between 0x000000 and 0xFFFFFF.`);
+                    value = color.color;
+                }
+                else {
+                    const result = helpers_1.ColorConverter.convert(color.color, typings_1.ColorFormat.hex);
+                    if (!result)
+                        throw new Error(`Could not convert string color "${color.color}" to hex.`);
+                    value = parseInt(result.replace("#", ""), 16);
+                }
+                if (ForgeColor.IsNamedColor(color.name))
+                    throw new Error(`Color name "${color.name}" already exists.`);
+                ForgeColor.Colors.push({ name: color.name, value });
+                opts.customColorNames.push(color);
+            }
+        }
+        this.options = opts;
+    }
     init() {
         this.load(`${__dirname}/functions`);
     }

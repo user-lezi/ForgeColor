@@ -1,13 +1,21 @@
 import { ForgeExtension } from "@tryforge/forgescript";
 import { NamedColor, RGB } from "./typings";
+export interface IForgeColorOptions {
+    customColorNames: Array<{
+        name: string;
+        color: string | number;
+    }>;
+}
 export declare class ForgeColor extends ForgeExtension {
     name: string;
     description: string;
     version: string;
+    private options;
     static Colors: Array<{
         name: NamedColor;
         value: number;
     }>;
+    constructor(options?: Partial<IForgeColorOptions>);
     init(): void;
     static GetColorFromName(name: NamedColor): number | null;
     static GetNameFromColor(value: number): NamedColor | null;
