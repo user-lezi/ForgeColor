@@ -7,5 +7,6 @@ export * from "./formatters";
 export * from "./gradient";
 export * from "./isDark";
 export * from "./manipulate";
+export * from "./namedColors";
 export * from "./parseColor";
 export * from "./temperature";
