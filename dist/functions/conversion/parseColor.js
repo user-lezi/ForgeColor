@@ -4,7 +4,7 @@ const forgescript_1 = require("@tryforge/forgescript");
 const parseColor_1 = require("../../helpers/parseColor");
 exports.default = new forgescript_1.NativeFunction({
     name: "$parseColor",
-    aliases: ["$normalizeColor", "$colorObject"],
+    aliases: ["$colorObject"],
     description: "Parses and normalizes a color string to a structured object.",
     brackets: true,
     unwrap: true,

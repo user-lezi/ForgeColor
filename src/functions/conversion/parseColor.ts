@@ -3,7 +3,7 @@ import { parseColor } from "../../helpers/parseColor";
 
 export default new NativeFunction({
   name: "$parseColor",
-  aliases: ["$normalizeColor", "$colorObject"],
+  aliases: ["$colorObject"],
   description: "Parses and normalizes a color string to a structured object.",
   brackets: true,
   unwrap: true,
